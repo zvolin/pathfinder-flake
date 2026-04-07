@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   rustToolchain =
     let
-      toml = fromTOML (builtins.readFile ./rust-toolchain.toml);
+      toml = fromTOML (builtins.readFile "${inputs.pathfinder}/rust-toolchain.toml");
       stable = pkgs.fenix.toolchainOf {
         channel = toml.toolchain.channel;
         sha256 = "sha256-SDu4snEWjuZU475PERvu+iO50Mi39KVjqCeJeNvpguU=";
