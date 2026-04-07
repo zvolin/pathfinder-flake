@@ -6,6 +6,9 @@
 
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
+
+    pathfinder.url = "github:eqlabs/pathfinder";
+    pathfinder.flake = false;
   };
 
   outputs =
