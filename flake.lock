@@ -75,13 +75,13 @@
       "locked": {
         "lastModified": 1775558347,
         "narHash": "sha256-OLaACRwKXbZn8Mx4LL3tzRpAjG1lnVvkmUcNX+yrUaA=",
-        "owner": "eqlabs",
+        "owner": "equilibriumco",
         "repo": "pathfinder",
         "rev": "95062ff7f1913958f5a8df71790a56263731e908",
         "type": "github"
       },
       "original": {
-        "owner": "eqlabs",
+        "owner": "equilibriumco",
         "repo": "pathfinder",
         "type": "github"
       }

@@ -7,7 +7,7 @@
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    pathfinder.url = "github:eqlabs/pathfinder";
+    pathfinder.url = "github:equilibriumco/pathfinder";
     pathfinder.flake = false;
   };
 
