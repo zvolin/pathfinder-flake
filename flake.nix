@@ -7,8 +7,8 @@
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    pathfinder.url = "github:equilibriumco/pathfinder";
-    pathfinder.flake = false;
+    pathfinder-toolchain.url = "file+https://raw.githubusercontent.com/equilibriumco/pathfinder/refs/heads/main/rust-toolchain.toml";
+    pathfinder-toolchain.flake = false;
   };
 
   outputs =
@@ -16,6 +16,7 @@
       fenix,
       flake-parts,
       nixpkgs,
+      pathfinder-toolchain,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -27,9 +28,12 @@
       perSystem =
         { system, ... }:
         {
-          _module.args.pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ fenix.overlays.default ];
+          _module.args = {
+            inherit pathfinder-toolchain;
+            pkgs = import nixpkgs {
+              inherit system;
+              overlays = [ fenix.overlays.default ];
+            };
           };
 
           imports = [

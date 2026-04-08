@@ -1,8 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, pathfinder-toolchain, ... }:
 let
   rustToolchain =
     let
-      toml = fromTOML (builtins.readFile "${inputs.pathfinder}/rust-toolchain.toml");
+      toml = fromTOML (builtins.readFile pathfinder-toolchain);
       stable = pkgs.fenix.toolchainOf {
         channel = toml.toolchain.channel;
         sha256 = "sha256-SDu4snEWjuZU475PERvu+iO50Mi39KVjqCeJeNvpguU=";
@@ -80,7 +80,6 @@ in
         just
 
         nodejs
-        nodePackages.typescript-language-server
       ]
       # required for cairo native compilation
       ++ [

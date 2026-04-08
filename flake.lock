@@ -70,20 +70,16 @@
         "type": "github"
       }
     },
-    "pathfinder": {
+    "pathfinder-toolchain": {
       "flake": false,
       "locked": {
-        "lastModified": 1775558347,
-        "narHash": "sha256-OLaACRwKXbZn8Mx4LL3tzRpAjG1lnVvkmUcNX+yrUaA=",
-        "owner": "equilibriumco",
-        "repo": "pathfinder",
-        "rev": "95062ff7f1913958f5a8df71790a56263731e908",
-        "type": "github"
+        "narHash": "sha256-ZXnIy7nYYEDAVUmFFF7zygucSqCcTEFdFlXUtzKw+MI=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/equilibriumco/pathfinder/refs/heads/main/rust-toolchain.toml"
       },
       "original": {
-        "owner": "equilibriumco",
-        "repo": "pathfinder",
-        "type": "github"
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/equilibriumco/pathfinder/refs/heads/main/rust-toolchain.toml"
       }
     },
     "root": {
@@ -91,7 +87,7 @@
         "fenix": "fenix",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
-        "pathfinder": "pathfinder"
+        "pathfinder-toolchain": "pathfinder-toolchain"
       }
     },
     "rust-analyzer-src": {
