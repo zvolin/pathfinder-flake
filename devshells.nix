@@ -86,7 +86,24 @@ in
         cairoNativeLlvm
         llvm.clangUseLLVM
         llvm.libclang
-      ];
+      ]
+      # for starknet.py
+      ++ (
+        let
+          # crypto_cpp_py dlopens a .so linked to libstdc++
+          pythonLdPath = lib.makeLibraryPath [ stdenv.cc.cc.lib ];
+          wrap =
+            name: pkg:
+            writeShellScriptBin name ''
+              export LD_LIBRARY_PATH=${pythonLdPath}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+              exec ${pkg}/bin/${name} "$@"
+            '';
+        in
+        [
+          (wrap "poetry" poetry)
+          (wrap "poe" poethepoet)
+        ]
+      );
 
       # Fortify hardening breaks jemalloc compilation
       hardeningDisable = [ "fortify" ];
